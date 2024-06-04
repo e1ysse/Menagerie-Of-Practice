@@ -1,23 +1,30 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import {getAllPizza} from "../public/data.js";
+import './index.css';
 
 const pizzaData = getAllPizza();
 console.log(pizzaData); //just for debugging
 
 function App() {
     return <>
-        <Header />
-        <Menu />
-        <Footer />
+        <div className="container">
+            <Header />
+            <Menu />
+            <Footer />
+        </div>
         </>;
 }
 
 //i was only just informed I could've been using arrow functions. so uh. heres to the sudden change
 const Header = () => {
+    //if you wanted to inline style put style={style}  into the <h2> and uncomment the line below
+    //const style = {color: "red", fontSize: "48px"};
     return(
         <>
-            <h1>Fast React Pizza Co.</h1>
+            <header  className="header">
+                <h1>Fast React Pizza Co.</h1>
+            </header>
         </>
     );
 };
@@ -26,8 +33,10 @@ const Header = () => {
 const Menu = () => {
     return(
         <>
-            <h2>Our Menu</h2>
-            <Pizza />
+            <div className="menu">
+                <h2>Our Menu</h2>
+                <Pizza />
+            </div>
         </>
     );
 };
@@ -47,7 +56,7 @@ const Footer = () => {
 
     return(
         <>
-            <footer>The time is now {new Date().toLocaleTimeString()}. {availabilityMsg} </footer>
+            <footer className="footer">The time is now {new Date().toLocaleTimeString()}. {availabilityMsg} </footer>
         </>
     );
 }; //yes i add semicolons to everything. Its easier to debug this way
@@ -55,18 +64,22 @@ const Footer = () => {
 function Pizza(){
     return(
         <>
-            {pizzaData.map(
-                    pizItem =>{
-                        return(
-                            <>
-                                <img src={`${pizItem.photoName}`} alt={`A picture of a ${pizItem.name}`}/>
-                                <h2>{pizItem.name}</h2>
-                                <p>{pizItem.ingredients}</p>
-                            </> //i couldnt tell you why but watch this like a hawk. it keeps trying to become some other thing like footer or header. anything but a fragment
-                        );
-                    }
-                )
-            }
+            <div className="pizzas">
+                {pizzaData.map(
+                        pizItem =>{
+                            return(
+                                <>
+                                    <div className="pizza">
+                                        <img src={`${pizItem.photoName}`} alt={`A picture of a ${pizItem.name}`}/>
+                                        <h2>{pizItem.name}</h2>
+                                        <p>{pizItem.ingredients}</p>
+                                    </div>
+                                </> //i couldnt tell you why but watch this like a hawk. it keeps trying to become some other thing like footer or header. anything but a fragment
+                            );
+                        }
+                    )
+                }
+            </div>
         </>
     );
 }
