@@ -67,11 +67,12 @@ function Pizza(){
             <div className="pizzas">
                 {pizzaData.map(
                         pizItem =>{
+                            let soldOut = (pizItem.soldOut) ? "sold-out" : "";
                             return(
                                 <>
-                                    <div className="pizza">
+                                    <div className={`pizza ${soldOut}`}>
                                         <img src={`${pizItem.photoName}`} alt={`A picture of a ${pizItem.name}`}/>
-                                        <h2>{pizItem.name}</h2>
+                                        <h3>{pizItem.name}</h3>
                                         <p>{pizItem.ingredients}</p>
                                     </div>
                                 </> //i couldnt tell you why but watch this like a hawk. it keeps trying to become some other thing like footer or header. anything but a fragment
