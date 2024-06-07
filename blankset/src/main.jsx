@@ -4,12 +4,13 @@ import './main.css';
 import {getSkillList} from "../public/skills.js";
 
 const skillList = getSkillList();
-function App() { //literally ew fix the border and whitespcae. also add aria and alt text. TODO
+function App() {
     return(
         <>
             <div className="card">
                 <Pfp />
                 <Introduction />
+                <Skillset />
                 <Dropdown/>
             </div>
         </>
@@ -19,7 +20,7 @@ function App() { //literally ew fix the border and whitespcae. also add aria and
 const Pfp = () =>{
     return(
         <>
-            <img src={"https://placehold.co/400"} className="pfp" />
+            <img src={"https://placehold.co/400"} className="pfp"  alt={"This is just a blank place holder image."}/>
         </>
     );
 }
@@ -29,18 +30,19 @@ const Introduction = () => {
         <>
             <h2>hello :) i'm elysse</h2>
             <h3>Software Engineer | Accessibility Advocate | UX Design </h3>
-            <p>I'm definitely going to put a description here defintitely mhm it will have no spelling errors ever i dont even know what a spelling error is actually. I will also have good punctu.. puntun... punctuation?? yeah that. this is a very long placeholder.</p>
+            <p>I'm a senior computer science major, with a passion for UX and accessible softwares. I'm most interested in Front End development, with experience in React, Vite, and Javascript, but I also have knowledge in Java, SQL, and data structures. </p>
         </>
     );
 }
 
-const Dropdown = () => { //gonna hold all the optional information in a collapsible form
+const Dropdown = () => { //gonna hold all the optional information in a collapsible form. will work on this later
     return(
         <>
-            <Skillset />
-            <Quickfacts />
-            <Table />
-            <ExperienceBars />
+            <div className="drop-down">
+                <Quickfacts />
+                <Table />
+                <ExperienceBars />
+            </div>
         </>
     );
 }
