@@ -64,23 +64,26 @@ const Footer = () => {
 function Pizza(){
     return(
         <>
-            <div className="pizzas">
+            <ul className="pizzas">
                 {pizzaData.map(
                         pizItem =>{
                             let soldOut = (pizItem.soldOut) ? "sold-out" : "";
                             return(
                                 <>
-                                    <div className={`pizza ${soldOut}`}>
+                                    <li className={`pizza ${soldOut}`}>
                                         <img src={`${pizItem.photoName}`} alt={`A picture of a ${pizItem.name}`}/>
-                                        <h3>{pizItem.name}</h3>
-                                        <p>{pizItem.ingredients}</p>
-                                    </div>
+                                        <div>
+                                            <h3>{pizItem.name}</h3>
+                                            <p>{pizItem.ingredients}</p>
+                                            <span>{pizItem.price}</span>
+                                        </div>
+                                    </li>
                                 </> //i couldnt tell you why but watch this like a hawk. it keeps trying to become some other thing like footer or header. anything but a fragment
                             );
                         }
                     )
                 }
-            </div>
+            </ul>
         </>
     );
 }
