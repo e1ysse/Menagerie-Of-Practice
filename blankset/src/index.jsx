@@ -52,7 +52,7 @@ function Pizza(props) {
                 <div>
                     <h3>{props.pizzaObj.name}</h3>
                     <p>{props.pizzaObj.ingredients}</p>
-                    <span>{props.pizzaObj.price}</span>
+                    <span>${props.pizzaObj.price}</span>
                 </div>
             </li>
         </>
@@ -78,6 +78,7 @@ const Footer = () => {
         </>
     );
 };
+
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
