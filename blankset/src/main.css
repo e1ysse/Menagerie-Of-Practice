@@ -1,5 +1,4 @@
 @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500&display=swap");
-
 * {
     margin: 0;
     padding: 4px;
@@ -8,7 +7,7 @@
 
 body {
     font-family: "IBM Plex Mono", sans-serif;
-    background-color: #f7f7f7;
+    background: radial-gradient(circle at 6.4% 9.8%, #58F2AEFF 0%, #0082F0FF 97.9%);
 }
 
 h1 {
@@ -22,6 +21,7 @@ h1 {
     max-width: fit-content;
     margin-left: auto;
     margin-right: auto;
+    background-color: #f7f7f7;
 }
 
 .card::after {
@@ -56,6 +56,64 @@ h1 {
     font-weight: 500;
 }
 
+/* yes this is ugly. yes its horrible on the eyes. I'm only doing this because i need to see the box sizes */
 .drop-down {
-
+    /*background-color: lime; */
+    padding: 4px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: normal;
+    align-content: stretch;
 }
+
+.drop-down div {
+    display: block;
+    flex-grow: 0;
+    flex-shrink: 1;
+    flex-basis: auto;
+    align-self: auto;
+    order: 0;
+}
+
+.drop-down-button {
+    font: inherit;
+    background-color:#44c767;
+    background: linear-gradient(to top, #9be15d 0%, #00e3ae 100%);
+    border-radius:28px;
+    border:1px solid #18ab29;
+    cursor:pointer;
+    color: #124e4f;
+    font-size:12px;
+    padding:10px 20px;
+    margin: auto;
+    margin-top: 17px;
+    margin-bottom: 15px;
+}
+.drop-down-button:hover{
+    filter: drop-shadow(0 0 0.50rem #ecd75a);
+    background-color: #279643;
+    border-radius:28px;
+    border:1px solid #0a5e13;
+    cursor:pointer;
+    color: #082828;
+}
+
+.drop-down-button:active{
+    filter: brightness(60%);
+    background-color: #279643;
+    border-radius:28px;
+    border:1px solid #0a5e13;
+    cursor:pointer;
+    color: #082828;
+}
+
+.drop-down-button.opened{
+    background: linear-gradient(-60deg, #ff5858 0%, #f09819 100%);
+    border-radius:28px;
+    border:1px solid #5e1e0a;
+    cursor:pointer;
+    color: #420a02;
+}
+
