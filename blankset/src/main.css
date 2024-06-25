@@ -1,5 +1,4 @@
 @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500&display=swap");
-
 * {
     margin: 0;
     padding: 4px;
@@ -56,6 +55,54 @@ h1 {
     font-weight: 500;
 }
 
+/* yes this is ugly. yes its horrible on the eyes. I'm only doing this because i need to see the box sizes */
 .drop-down {
-
+    /*background-color: lime; */
+    padding: 4px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: normal;
+    align-content: stretch;
 }
+
+.drop-down div {
+    display: block;
+    flex-grow: 0;
+    flex-shrink: 1;
+    flex-basis: auto;
+    align-self: auto;
+    order: 0;
+}
+
+.drop-down-button {
+    font: inherit;
+    background-color:#44c767;
+    border-radius:28px;
+    border:1px solid #18ab29;
+    cursor:pointer;
+    color: #124e4f;
+    font-size:16px;
+    padding:10px 20px;
+    margin: auto;
+    margin-top: 17px;
+    margin-bottom: 15px;
+}
+.drop-down-button:hover{
+    background-color: #279643;
+    border-radius:28px;
+    border:1px solid #0a5e13;
+    cursor:pointer;
+    color: #082828;
+}
+
+.drop-down-button:active{
+    background-color: #279643;
+    border-radius:28px;
+    border:1px solid #0a5e13;
+    cursor:pointer;
+    color: #082828;
+}
+
+

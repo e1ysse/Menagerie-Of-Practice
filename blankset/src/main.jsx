@@ -1,7 +1,10 @@
-import React from 'react';
+import React, {useState} from 'react';
 import ReactDOM from 'react-dom/client';
 import './main.css';
 import {getSkillList} from "../public/skills.js";
+import {Table} from "./Components/table.jsx";
+import {ExperienceBars} from "./Components/ExperienceBars.jsx";
+import {Quickfacts} from "./Components/QuickFacts.jsx";
 
 const skillList = getSkillList();
 function App() {
@@ -11,7 +14,7 @@ function App() {
                 <Pfp />
                 <Introduction />
                 <Skillset />
-                <Dropdown/>
+                <Dropdown />
             </div>
         </>
     );
@@ -35,18 +38,6 @@ const Introduction = () => {
     );
 }
 
-const Dropdown = () => { //gonna hold all the optional information in a collapsible form. will work on this later
-    return(
-        <>
-            <div className="drop-down">
-                <Quickfacts />
-                <Table />
-                <ExperienceBars />
-            </div>
-        </>
-    );
-}
-
 const Skillset = () => {
     return(
         <>
@@ -65,32 +56,39 @@ const Skillset = () => {
     );
 }
 
-const ExperienceBars = () => { //for each programming language. maybe a circle chart instead
+const Dropdown = () => { //gonna hold all the optional information in a collapsible form. will work on this later
+    const [open, setOpen] = useState(false); //create variable open, set to false. when something is used (a useEffect) the setOpen fucntion will activate
+    const toggle = () => { // a toggle ofc
+        setOpen(!open);
+        console.log(open);
+    };
     return(
         <>
-
-        </>
-    );
-}
-
-const Table = () => { //as in what do i bring to the table
-    return(
-        <>
-
-        </>
-    );
-}
-
-const Quickfacts = () => { //WHEN DO U GRDTE. WHERE LIVE. WHAT PASSION. HOW OLD ARE U. WHY ARE YOU EATING COOKIES.
-    return(
-        <>
-
+            <div className="drop-down">
+            <button className="drop-down-button" onClick={toggle}> See More Information </button>
+            {open && (
+                <div>
+                    <div>
+                        <Quickfacts/>
+                    </div>
+                    <div>
+                        <Table/>
+                    </div>
+                    <div>
+                        <ExperienceBars/>
+                    </div>
+                </div>
+            )/* this is an example of short circuting. if open is false, the condition will auto assume that the 2nd thing,
+                * in this case the elements of the dropdown, is true and render them. Then open will be set to true. now if a
+                * user clicks again, its gonna see how open is set to true first, which means it will just ignore the 2nd half of
+                * the condition, thus it wont render. then after that is done, open is set to false again */ }
+            </div>
         </>
     );
 }
 
 ReactDOM.createRoot(document.getElementById('root')).render(
     <React.StrictMode>
-        <App />
+        <App/>
     </React.StrictMode>,
 )

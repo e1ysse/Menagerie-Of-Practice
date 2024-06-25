@@ -1,0 +1,41 @@
+@import "../main.css";
+
+h2 {
+   margin-top: 20px;
+}
+.table-rating {
+    display: inherit;
+    justify-content: center;
+    margin: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #CCF4BF;
+    border-radius: 8px;
+}
+
+h4 {
+    color: #124e4f;
+}
+
+.star-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    background-color: #e1fcd6;
+    padding: 4px;
+    border-radius: 8px;
+    opacity: 50;
+}
+
+.stars {
+    display: flex;
+    flex-grow: 0;
+    flex-shrink: 1;
+}
+
+.stars img {
+    width: 30px;
+    filter: invert(25%) sepia(29%) saturate(891%) hue-rotate(132deg) brightness(96%) contrast(100%);
+    /* for the above, i used this website to get the color https://codepen.io/sosuke/pen/Pjoqqp */
+}
