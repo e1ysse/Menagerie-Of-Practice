@@ -32,6 +32,7 @@ const Menu = () => {
         <>
             <main className="menu">
                 <h2>Our Menu</h2>
+                <p>Authentic Italian cuisine. Six creative dishes to choose from. All from our store oven, all organic, all delicious.</p>
                 <ul className="pizzas">
                     {pizzaData.map(pizItem =>{
                         let sellOut = pizItem.soldOut ? "sold-out" : "";
@@ -45,6 +46,8 @@ const Menu = () => {
 
 //will be utilizing props here instead
 function Pizza(props) {
+    //if you wanted to, instead of props being passed in, you can put "{pizzaObj}". that way you dont have to type all the props. and whatever
+    //below. this is called destructuring
     return (
         <>
             <li className={`pizza ${props.soldOut}`}>
@@ -52,7 +55,7 @@ function Pizza(props) {
                 <div>
                     <h3>{props.pizzaObj.name}</h3>
                     <p>{props.pizzaObj.ingredients}</p>
-                    <span>${props.pizzaObj.price}</span>
+                    <span>{props.pizzaObj.soldOut ? "SOLD OUT" : `$${props.pizzaObj.price}`}</span>
                 </div>
             </li>
         </>
@@ -64,17 +67,22 @@ const Footer = () => {
     const openHour = 12;
     const closeHour = 22;
     let availabilityMsg = "There was an error fetching the hours.";
+    let isOpened;
     //now we can just put any js in here lol
 
     if (hour >= openHour && hour < closeHour) {
         availabilityMsg = "We're currently open!";
+        isOpened = true;
     } else {
         availabilityMsg = "We're currently closed.";
+        isOpened = false;
     }
 
+    console.log(isOpened);
     return (
         <>
-            <footer className="footer">The time is now {new Date().toLocaleTimeString()}. {availabilityMsg} </footer>
+            <footer className="footer"> The time is now {new Date().toLocaleTimeString()}. {availabilityMsg} </footer>
+            {isOpened && (<button className="btn">Order</button>)}
         </>
     );
 };
